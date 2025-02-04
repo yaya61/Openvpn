@@ -12,7 +12,8 @@ ListenPort = 51820
 PrivateKey = <SERVER_PRIVATE_KEY>
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o wlp58s0 -j MASQUERADE
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o wlp58s0 -j MASQUERADE
-
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o enx582c80139263 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o enx582c80139263 -j MASQUERADE
 [Peer]
 PublicKey = <CLIENT1_PUBLIC_KEY>
 AllowedIPs = 10.0.0.2/32
