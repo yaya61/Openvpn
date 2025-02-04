@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt install wireguard resolvconf
+sudo apt install wireguard
 
 wg genkey | tee privatekey | wg pubkey > publickey
 
